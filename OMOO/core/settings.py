@@ -43,9 +43,12 @@ INSTALLED_APPS = [
     "mathfilters",
     "colorfield",
     'phonenumber_field',
+    'rest_framework',
     # my apps
     "dashboard",
-    "users",
+    "user",
+    "Products",
+    
 ]
 
 MIDDLEWARE = [
@@ -90,6 +93,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ]
 }
 CACHES_TTL = 60 * 1500
 CACHES = {
@@ -150,7 +160,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/uploads/"
 MEDIA_ROOT = BASE_DIR / "uploads"
 
-#AUTH_USER_MODEL = "user.CustomUser"
+AUTH_USER_MODEL = "user.CustomUser"
 
 LOGIN_REDIRECT_URL = "/"
 

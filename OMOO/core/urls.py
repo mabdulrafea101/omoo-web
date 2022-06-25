@@ -18,9 +18,18 @@ from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import include, path
+from django.contrib.auth.models import User
+from rest_framework import serializers, viewsets, routers
+
+
+# Routers provide a way of automatically determining the URL conf.
+router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accounts/", include("users.urls")),
-   path('', include('dashboard.urls')),
+    path("accounts/", include("user.urls")),
+    path('', include('dashboard.urls')),
+   path('product/', include('Products.urls')), 
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

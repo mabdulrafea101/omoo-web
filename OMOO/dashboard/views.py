@@ -6,7 +6,7 @@ from django.db.models import Avg, Max, Min, Sum
 # from Expenses.models import Expense
 # from Products.models import Inventory, Product
 # from Sales.models import Order
-from users.decorators import (admin_required, inventory_manager_required,
+from user.decorators import (admin_required, inventory_manager_required,
                               manager_required, staff_required)
 
 # Create your views here.

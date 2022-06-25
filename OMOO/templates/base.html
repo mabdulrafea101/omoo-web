@@ -42,7 +42,9 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-          <img class="animation__shake" src="{% static 'img/OMOO_logo.png' %}" alt="FriendsPlasticLogo" height="280" width="280">
+          <img class="animation__shake" src="{% static 'img/OMOO-logo.png' %}" alt="FriendsPlasticLogo" height="280" width="280"
+          style=" border-radius: 50%;"
+          >
         </div>
     
          <!-- Navbar -->
@@ -97,8 +99,8 @@
   <aside class="main-sidebar main-sidebar-custom sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{% url 'home' %}" class="brand-link">
-      <img src="{% static 'img/OMOO_logo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-2" style="opacity: .8">
-      <span class="d-block">admin{{ request.user.first_name }}-test{{ request.user.last_name }}</span>
+      <img src="{% static 'img/OMOO-logo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-2" style="opacity: .8">
+      <span class="d-block">{{ request.user.first_name }}-{{ request.user.last_name }}</span>
     </a>
     
 
@@ -124,17 +126,6 @@
                 </a>
             </li>
           
-            <li class="nav-item">
-                <!-- TODO: add pos_open in views.py of Sales-->
-                {% if pos_open %}
-                    <a href="#" class="nav-link active">
-                    {% else %}
-                    <a href="#" class="nav-link">
-                {% endif %}
-                    <i class="nav-icon fa fa-cart-arrow-down"></i>
-                    <p>POS</p>
-                </a>
-            </li>
 
             <li class="nav-item">
                 <!-- TODO: add pos_open in views.py of Sales-->
@@ -186,9 +177,9 @@
                   <li class="nav-item">
                     <!--TODO: add product_open = TRUE in context of this view-->
                     {% if categoires_open %}
-                        <a href="#" class="nav-link active">
+                        <a href="{% url 'products_category_list' %}" class="nav-link active">
                     {% else %}
-                        <a href="#" class="nav-link">
+                        <a href="{% url 'products_category_list' %}" class="nav-link">
                     {% endif %}
                       <i class="far fa-circle nav-icon"></i>
                       <p>Categories</p>
@@ -197,9 +188,9 @@
                   <li class="nav-item">
                   <!--TODO: add product_open = TRUE in context of this view-->
                   {% if items_open %}
-                    <a href="#" class="nav-link active">
+                    <a href="{% url 'products_list' %}" class="nav-link active">
                   {% else %}
-                    <a href="#" class="nav-link">
+                    <a href="{% url 'products_list' %}" class="nav-link">
                   {% endif %}
                     
                       <i class="far fa-circle nav-icon"></i>
