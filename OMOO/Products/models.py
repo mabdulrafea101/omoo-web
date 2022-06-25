@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 from simple_history.models import HistoricalRecords
-from user.models import CustomUser, Rider
+from user.models import CustomUser
 
 # Create your models here.
 

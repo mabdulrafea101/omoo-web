@@ -10,3 +10,4 @@ admin.site.register(Inventory)
 admin.site.register(InventoryIn)
 admin.site.register(InventoryOut)
 admin.site.register(InventoryReturn)
+

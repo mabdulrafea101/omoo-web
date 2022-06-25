@@ -259,6 +259,7 @@ def add_inventory_qty(request,*args, **kwargs):
 
 @login_required
 def sub_inventory_qty(request,*args, **kwargs):
+
     if request.method == 'POST':
         qty_to_add = request.POST.get("inv_quantity")
         inventory_qty = Inventory.objects.filter(id=kwargs['pk']).values_list("product_quantity")[0][0]
@@ -270,3 +271,13 @@ def sub_inventory_qty(request,*args, **kwargs):
         print(updated_quantity)
 
     return redirect(reverse_lazy("inventory_list"))
+
+
+
+    #-----------------------------------------------------------
+    #
+    #                   REST API Work
+    #
+    #-----------------------------------------------------------
+
+
